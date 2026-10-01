@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- ========================================== -->
+    <!-- 🌐 SEO & SOCIAL MEDIA SHARE TAGS (Open Graph) -->
+    <!-- ========================================== -->
+    <title>Mega Spin & Win - বাংলাদেশ</title>
+    <meta name="description" content="🎡 MEGA JACKPOT-এ প্রতিদিন ফ্রি স্পিনের সুযোগ! 🎁
+বিভিন্ন স্পিন অপশনের মাধ্যমে উপভোগ করুন আকর্ষণীয় পুরস্কারের সম্ভাবনা, Mega Jackpot এবং অতিরিক্ত Free Spin। ✨
+🎁 শুরুতেই থাকছে ৩টি ফ্রি স্পিন
+🎯 বিভিন্ন পুরস্কারের অপশন
+🔄 Try Again ও অতিরিক্ত স্পিনের সুযোগ
+👉 আজকের স্পিনটি শুরু করতে নিচের লিংকে প্রবেশ করুন।">
+    
+    <!-- Facebook / WhatsApp / Telegram Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vortextour.github.io/WinMF/"> <!-- এখানে আপনার ওয়েবসাইটের লিংক দিন -->
+    <meta property="og:title" content="Mega Spin & Win - খেলুন আর জিতে নিন দারুণ সব পুরস্কার!">
+    <meta property="og:description" content="🎡 MEGA JACKPOT-এ প্রতিদিন ফ্রি স্পিনের সুযোগ! 🎁
+বিভিন্ন স্পিন অপশনের মাধ্যমে উপভোগ করুন আকর্ষণীয় পুরস্কারের সম্ভাবনা, Mega Jackpot এবং অতিরিক্ত Free Spin। ✨
+🎁 শুরুতেই থাকছে ৩টি ফ্রি স্পিন
+🎯 বিভিন্ন পুরস্কারের অপশন
+🔄 Try Again ও অতিরিক্ত স্পিনের সুযোগ
+👉 আজকের স্পিনটি শুরু করতে নিচের লিংকে প্রবেশ করুন।">
+    <meta property="og:image" content="https://i.ibb.co.com/CXKqpjh/file-00000000d0b48211893baa10b8449ae1.png"> <!-- এখানে আপনার প্রিভিউ ছবির লিংক দিন -->
+
+    <!-- Google Fonts for Bengali and English -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Base Reset */
+        html, body {
+            width: 100vw;
+            max-width: 100%;
+            overflow-x: hidden;
+            background: #020617; 
+            touch-action: pan-y; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Font Classes */
+        .font-en { font-family: 'Montserrat', sans-serif; }
+        .font-bn { font-family: 'Hind Siliguri', sans-serif; }
+
+        /* Fixed Ambient Light */
+        .ambient-light {
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150vw;
+            height: 150vh;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(2, 6, 23, 0) 55%);
+            animation: breathe 6s infinite alternate ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes breathe {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        /* Casino Frame */
+        .wheel-frame {
+            position: relative;
+            padding: 1.1rem;
+            background: conic-gradient(from 0deg, #1f2937, #0f172a, #374151, #0f172a, #1f2937);
+            border-radius: 50%;
+            box-shadow: 
+                0 25px 60px -10px rgba(0,0,0,1),
+                inset 0 0 25px rgba(255,255,255,0.1),
+                0 0 70px rgba(139, 92, 246, 0.25);
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+        @media (min-width: 768px) { .wheel-frame { padding: 1.4rem; } }
+
+        /* Inner Ring */
+        .wheel-inner-ring {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            background: #000;
+            border: 5px solid #fbbf24;
+            box-shadow: inset 0 0 40px rgba(0,0,0,1), 0 0 25px rgba(251, 191, 36, 0.6);
+        }
+
+        /* Rotating Surface */
+        .wheel-surface {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        /* Gold Dividers */
+        .segment-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 50%;
+            background: linear-gradient(to bottom, #fef08a, #d97706, #451a03);
+            transform-origin: bottom center;
+            z-index: 5;
+            box-shadow: 2px 0 6px rgba(0,0,0,0.9);
+        }
+
+        /* Physical Pegs (Pins) */
+        .peg {
+            position: absolute;
+            top: 1%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 35% 35%, #fff, #fbbf24, #b45309);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 8px rgba(0,0,0,1), inset 0 -2px 4px rgba(0,0,0,0.8);
+            z-index: 15;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Dynamic LED Bulbs */
+        .bulb {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            will-change: background, box-shadow, opacity;
+            transition: opacity 0.05s ease, transform 0.1s ease;
+        }
+        @media (min-width: 768px) { .bulb { width: 10px; height: 10px; } }
+
+        /* Curved Glass Overlay */
+        .wheel-gloss {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(110% 110% at 30% 30%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.9) 100%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Center Hub */
+        .wheel-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18%;
+            height: 18%;
+            background: conic-gradient(from 0deg, #fef08a, #b45309, #fef08a, #b45309, #fef08a);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 15px 35px rgba(0,0,0,1), inset 0 -5px 15px rgba(0,0,0,0.9), inset 0 5px 15px rgba(255,255,255,0.9);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wheel-hub-inner {
+            width: 45%;
+            height: 45%;
+            background: radial-gradient(circle, #374151, #000);
+            border-radius: 50%;
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.5), 0 0 15px rgba(0,0,0,0.9);
+        }
+
+        /* Perfect Physics Pointer */
+        .pointer-shadow { filter: drop-shadow(0px 12px 10px rgba(0,0,0,0.95)) drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.2)); }
+        .pointer-spring { transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+        /* Shadows */
+        .text-3d-shadow { text-shadow: 1px 1px 3px rgba(0,0,0,1), 0 0 12px rgba(0,0,0,0.9); }
+        .icon-shadow { filter: drop-shadow(0px 4px 5px rgba(0,0,0,1)) drop-shadow(0px 0px 10px rgba(250, 204, 21, 0.5)); }
+
+        /* Sweep Glowing Button */
+        .btn-glow {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f59e0b, #ec4899, #8b5cf6);
+            background-size: 200% auto;
+            animation: sweep 3s linear infinite;
+        }
+        @keyframes sweep { to { background-position: 200% center; } }
+
+        /* Modal */
+        .glass-modal {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+        .modal-enter { opacity: 0; transform: scale(0.9) translateY(20px); }
+        .modal-active { opacity: 1; transform: scale(1) translateY(0); transition: all 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.2); }
+    </style>
+</head>
+<body class="text-white relative min-h-[100dvh]">
+
+    <div class="ambient-light"></div>
+
+    <main class="relative w-full min-h-[100dvh] flex flex-col items-center justify-start pt-10 md:pt-14 pb-8 px-2 overflow-x-hidden">
+        
+        <h1 class="font-en text-3xl md:text-5xl font-black mb-4 uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)] text-center relative z-10">
+            Mega Jackpot
+        </h1>
+        
+        <div class="mb-6 md:mb-10 relative z-10">
+            <div class="font-bn bg-gray-900/80 border border-yellow-500/50 shadow-[0_0_15px_rgba(234,179,8,0.3)] px-6 py-2 rounded-full text-yellow-400 font-bold tracking-wide text-sm md:text-base flex items-center gap-2">
+                <span class="text-white">আপনার বাকি স্পিন:</span> 
+                <span id="spinCountDisplay" class="text-xl font-black bg-yellow-400 text-black px-2 rounded">3</span>
+            </div>
+        </div>
+
+        <div class="relative w-[88vw] max-w-[400px] md:max-w-[460px] aspect-square mb-10 md:mb-12 flex justify-center items-center z-10">
+            
+            <!-- Ultra Premium Physics Pointer -->
+            <div class="absolute -top-10 md:-top-11 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center">
+                <div class="w-8 h-8 md:w-9 md:h-9 bg-gradient-to-b from-gray-200 via-gray-600 to-gray-900 rounded-full border-[3px] border-gray-400 shadow-[0_5px_15px_rgba(0,0,0,0.9),_0_0_20px_rgba(255,255,255,0.3)] relative z-50 flex items-center justify-center">
+                    <div class="w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_15px_#22d3ee]"></div>
+                </div>
+                
+                <div id="pointer-blade" class="origin-top pointer-shadow pointer-spring" style="margin-top: -12px;">
+                    <svg width="55" height="80" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:w-[65px] md:h-[90px]">
+                        <path d="M20 60L2 15C0 10 5 2 12 2H28C35 2 40 10 38 15L20 60Z" fill="url(#goldGrad)" stroke="#fff" stroke-width="1.5"/>
+                        <path d="M20 54L6 16C5 12 8 5 12 5H28C32 5 35 12 34 16L20 54Z" fill="#111827"/>
+                        <path d="M20 48L10 17C9 14 11 9 14 9H26C29 9 31 14 30 17L20 48Z" fill="url(#neonGrad)"/>
+                        <path d="M20 5V56" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fef08a" />
+                                <stop offset="50%" stop-color="#b45309" />
+                                <stop offset="100%" stop-color="#451a03" />
+                            </linearGradient>
+                            <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#c084fc" />
+                                <stop offset="100%" stop-color="#2dd4bf" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="wheel-frame w-full h-full">
+                <!-- 36 LED Bulbs -->
+                <div id="bulbs-container" class="absolute inset-0 z-0"></div>
+                
+                <div class="wheel-inner-ring">
+                    <div id="wheel" class="wheel-surface">
+                        <div id="wheel-text-container" class="absolute inset-0"></div>
+                        <div id="wheel-dividers-container" class="absolute inset-0 z-0"></div>
+                        <div id="wheel-pegs-container" class="absolute inset-0 z-15"></div>
+                        <div class="wheel-gloss"></div>
+                    </div>
+                    <div class="wheel-hub"><div class="wheel-hub-inner"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <button id="spinBtn" class="font-bn btn-glow relative text-white font-black text-xl md:text-3xl tracking-widest px-14 md:px-20 py-4 md:py-5 rounded-full shadow-[0_0_40px_rgba(236,72,153,0.5)] border border-pink-300 transform hover:scale-105 active:scale-95 transition-all z-10 mt-auto md:mt-0">
+            স্পিন করুন
+        </button>
+    </main>
+
+    <!-- PERFECT Responsive Modal -->
+    <div id="winModal" class="fixed inset-0 z-[100] hidden bg-black/95 overflow-y-auto">
+        <div class="flex min-h-[100dvh] p-4">
+            <div id="modalContent" class="glass-modal w-full max-w-[380px] md:max-w-[440px] p-6 md:p-8 rounded-[2rem] text-center shadow-[0_0_60px_rgba(139,92,246,0.6)] modal-enter m-auto relative">
+                
+                <div id="modalIconContainer" class="w-20 h-20 md:w-28 md:h-28 mx-auto bg-gradient-to-br from-purple-400 via-pink-500 to-yellow-500 rounded-full flex items-center justify-center mb-5 md:mb-6 shadow-[0_0_40px_rgba(236,72,153,0.6)] border-[4px] border-gray-900 shrink-0 text-white icon-shadow">
+                    <!-- Icon injected -->
+                </div>
+                
+                <h2 id="modalTitle" class="font-bn text-xl md:text-3xl font-black text-gray-200 mb-1 tracking-wider uppercase">
+                    অভিনন্দন!
+                </h2>
+                
+                <div class="font-bn text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-yellow-600 mb-6 py-2 drop-shadow-xl leading-tight" id="winPrizeText">
+                    PRIZE
+                </div>
+                
+                <button id="claimBtn" class="font-bn w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-black text-xl md:text-2xl py-3.5 md:py-4 rounded-2xl hover:from-purple-400 hover:to-pink-500 transition-colors shadow-[0_10px_25px_rgba(236,72,153,0.4)] mb-3 tracking-widest border border-pink-300 shrink-0">
+                    পুরস্কার সংগ্রহ করুন
+                </button>
+                
+                <button id="closeModalBtn" class="font-bn text-gray-400 hover:text-white text-sm md:text-base transition-colors tracking-widest font-bold px-4 py-2">
+                    পরে স্পিন করব
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti -->
+    <canvas id="confettiCanvas" class="fixed inset-0 z-40 pointer-events-none hidden w-full h-full"></canvas>
+
+    <script>
+        // ==========================================
+        // ⚙️ CONFIGURATION & SPIN SYSTEM
+        // ==========================================
+        const CLAIM_URL = "https://www.profitableratecpmnetwork.com/bhub6fg0?key=fb50d1e9dfb29cfd0daeb771ac81249c";
+        
+        let spinsLeft = 3;
+
+        const PRIZES = [
+            { text: "১০০\nটাকা", color: "#064e3b", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>` },
+            { text: "১০ ফ্রি\nস্পিন", color: "#7f1d1d", type: "spin", amount: 10, icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><path d="M21 12a9 9 0 11-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>` },
+            { text: "৫০০\nটাকা", color: "#1e1b4b", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>` },
+            { text: "১০০০\nটাকা", color: "#451a03", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><circle cx="12" cy="8" r="6"/><path d="M15.71 13.71c.77-.38 1.48-.82 2.1-1.32A6.05 6.05 0 0112 14c-2.3 0-4.32-.5-5.81-1.39a8.49 8.49 0 002.1 1.32M6 14.5a8.6 8.6 0 006 1.5 8.6 8.6 0 006-1.5M6 18.5a8.6 8.6 0 006 1.5 8.6 8.6 0 006-1.5"/></svg>` },
+            { text: "TRY\nAGAIN", color: "#1f2937", type: "none", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>` },
+            { text: "১০,০০০\nটাকা", color: "#831843", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>` },
+            { text: "৫০\nটাকা", color: "#082f49", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle></svg>` },
+            { text: "মেগা\nজ্যাকপট", color: "#4a044e", type: "cash", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 md:w-8 md:h-8"><rect x="3" y="8" width="18" height="14" rx="2"></rect><line x1="12" y1="8" x2="12" y2="22"></line><line x1="3" y1="14" x2="21" y2="14"></line><path d="M12 8c-2-2-5-2-5-4s3-2 5 4c2-6 5-6 5-4-2 2-5 2-5 4z"></path></svg>` }
+        ];
+
+        const wheel = document.getElementById('wheel');
+        const wheelTextContainer = document.getElementById('wheel-text-container');
+        const wheelDividersContainer = document.getElementById('wheel-dividers-container');
+        const wheelPegsContainer = document.getElementById('wheel-pegs-container');
+        const bulbsContainer = document.getElementById('bulbs-container');
+        const spinBtn = document.getElementById('spinBtn');
+        const pointerBlade = document.getElementById('pointer-blade');
+        const spinCountDisplay = document.getElementById('spinCountDisplay');
+        
+        let currentRotation = 0;
+        let isSpinning = false;
+        const totalSegments = PRIZES.length;
+        const degreesPerSegment = 360 / totalSegments;
+        const bulbsList = [];
+
+        // Update UI based on spins left
+        function updateSpinUI() {
+            spinCountDisplay.innerText = spinsLeft;
+            if (spinsLeft <= 0) {
+                spinBtn.innerText = 'স্পিন শেষ';
+                spinBtn.classList.remove('btn-glow');
+                spinBtn.classList.add('opacity-50', 'cursor-not-allowed', 'grayscale');
+            } else {
+                if(!isSpinning) {
+                    spinBtn.innerText = 'স্পিন করুন';
+                    spinBtn.classList.add('btn-glow');
+                    spinBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'grayscale');
+                }
+            }
+        }
+
+        // 1. GENERATE WHEEL
+        function drawWheel() {
+            let gradientStr = '';
+            PRIZES.forEach((prize, index) => {
+                const startAngle = index * degreesPerSegment;
+                const endAngle = startAngle + degreesPerSegment;
+                gradientStr += `${prize.color} ${startAngle}deg ${endAngle}deg,`;
+
+                const divider = document.createElement('div');
+                divider.className = 'segment-divider';
+                divider.style.transform = `translateX(-50%) rotate(${startAngle}deg)`;
+                wheelDividersContainer.appendChild(divider);
+
+                const pegWrapper = document.createElement('div');
+                pegWrapper.className = 'absolute inset-0 pointer-events-none z-15';
+                pegWrapper.style.transform = `rotate(${startAngle}deg)`;
+                pegWrapper.innerHTML = `<div class="peg"></div>`;
+                wheelPegsContainer.appendChild(pegWrapper);
+
+                const sliceCenterAngle = startAngle + (degreesPerSegment / 2);
+                const rotation = sliceCenterAngle - 90; 
+                
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'absolute inset-0 pointer-events-none z-10';
+                contentWrapper.style.transform = `rotate(${rotation}deg)`;
+                
+                contentWrapper.innerHTML = `
+                    <div class="absolute top-1/2 left-[56%] right-[11%] transform -translate-y-1/2 flex flex-row items-center justify-end gap-1.5 md:gap-2">
+                        <div class="text-right leading-[1.1] shrink-0">
+                            <span class="font-bn text-white font-bold text-[11px] sm:text-[13px] md:text-[15px] uppercase text-3d-shadow tracking-wider block">
+                                ${prize.text.replace('\n', '<br>')}
+                            </span>
+                        </div>
+                        <div class="shrink-0 text-yellow-400 icon-shadow flex items-center justify-center">
+                            ${prize.icon}
+                        </div>
+                    </div>
+                `;
+                wheelTextContainer.appendChild(contentWrapper);
+            });
+            wheel.style.background = `conic-gradient(${gradientStr.slice(0, -1)})`;
+
+            const totalBulbs = 36;
+            for(let i=0; i<totalBulbs; i++) {
+                const angle = (i * (360 / totalBulbs)) * (Math.PI / 180);
+                const radius = 47.5; 
+                const x = 50 + radius * Math.cos(angle);
+                const y = 50 + radius * Math.sin(angle);
+                
+                const bulb = document.createElement('div');
+                bulb.className = 'bulb';
+                bulb.style.left = `${x}%`;
+                bulb.style.top = `${y}%`;
+                bulb.dataset.slotHue = [0, 60, 180, 300][Math.floor(Math.random()*4)];
+                
+                bulbsContainer.appendChild(bulb);
+                bulbsList.push(bulb);
+            }
+        }
+
+        // 2. MASSIVE 24 LIGHTING EFFECTS ENGINE
+        let lightTick = 0;
+        let currentLightEffect = 0;
+        const totalEffects = 24;
+
+        setInterval(() => { currentLightEffect = (currentLightEffect + 1) % totalEffects; }, 6000);
+        setInterval(() => {
+            lightTick++;
+            bulbsList.forEach((bulb, i) => {
+                let hue = 0, sat = '100%', light = '60%', opacity = 1, isOn = true;
+
+                switch(currentLightEffect) {
+                    case 0: hue = (i * 10 - lightTick * 10) % 360; break;
+                    case 1: isOn = (i % 2 === Math.floor(lightTick / 3) % 2); hue = isOn ? 0 : 240; break;
+                    case 2: isOn = Math.random() > 0.6; hue = Math.random() * 360; opacity = isOn ? (Math.random()*0.5+0.5) : 0.15; break;
+                    case 3: let sp = Math.abs((lightTick % 70) - 35); isOn = Math.abs(i - sp) < 4; hue = 160; opacity = Math.max(0.1, 1 - Math.abs(i - sp)*0.25); break;
+                    case 4: 
+                        let p1 = lightTick % 36, p2 = (lightTick + 18) % 36;
+                        let d1 = Math.min(Math.abs(i-p1), 36-Math.abs(i-p1)), d2 = Math.min(Math.abs(i-p2), 36-Math.abs(i-p2));
+                        if(d1 < 4){ hue = 45; opacity = 1 - d1*0.25; } else if(d2 < 4){ hue = 190; opacity = 1 - d2*0.25; } else { isOn = false; } break;
+                    case 5: hue = (lightTick * 3) % 360; opacity = 0.2 + ((Math.sin(lightTick*0.1)+1)/2)*0.8; break;
+                    case 6: let cy = Math.floor(lightTick / 36) % 2; isOn = cy === 0 ? (i <= lightTick%36) : (i > lightTick%36); hue = (Math.floor(lightTick/72)*80)%360; break;
+                    case 7: isOn = (Math.floor(i/9) % 2 === Math.floor(lightTick/8)%2); hue = isOn ? 300 : 50; break;
+                    case 8: if(lightTick%4===0) bulb.dataset.slotHue = [0,50,140,280][Math.floor(Math.random()*4)]; hue = bulb.dataset.slotHue; break;
+                    case 9: hue = 5 + 35 * Math.sin(i*0.5 - lightTick*0.3); opacity = 0.5 + 0.5*Math.random(); break;
+                    case 10: opacity = Math.max(0.1, Math.sin(lightTick*0.2 + (i%2)*Math.PI)); hue = 280; break;
+                    case 11: hue = 45; let gw = (Math.sin(i*0.5 - lightTick*0.15)+1)/2; opacity = 0.2 + gw*0.8; break;
+                    case 12: isOn = (i === (lightTick*2)%36 || i === (lightTick*2+18)%36); hue = 320; break;
+                    case 13: let mDist = ((lightTick*2)%36 - i + 36) % 36; isOn = mDist < 8; hue = 60; opacity = isOn ? (1 - mDist*0.12) : 0; break;
+                    case 14: isOn = Math.random() > 0.5; hue = Math.random() * 360; opacity = isOn ? 1 : 0.2; break;
+                    case 15: let sDist = ((lightTick)%36 - i + 36) % 36; isOn = sDist < 5; hue = 120; opacity = isOn ? 1 : 0.1; break;
+                    case 16: let np = (Math.sin(lightTick * 0.1) + 1) / 2; hue = np > 0.5 ? 300 : 180; opacity = 0.3 + np*0.7; break;
+                    case 17: isOn = Math.random() > 0.8; hue = 200; sat = '20%'; light = '90%'; opacity = isOn ? 1 : 0.2; break;
+                    case 18: let hb = lightTick % 20; hue = 0; opacity = (hb===0||hb===1||hb===4||hb===5) ? 1 : 0.2; break;
+                    case 19: isOn = true; if(i === Math.floor(lightTick*1.5)%36){ hue=120; opacity=1;} else { hue=i%2===0?0:240; opacity=0.4;} break;
+                    case 20: let arm = (i + lightTick) % 12; isOn = arm < 3; hue = 280; opacity = isOn ? (1 - arm*0.2) : 0.1; break;
+                    case 21: let bCy = lightTick % 70; let bPos = bCy < 35 ? bCy : 70 - bCy; let bDist2 = Math.abs(i - bPos); isOn = bDist2 < 3; hue = 190; opacity = isOn ? (1 - bDist2*0.3) : 0.1; break;
+                    case 22: isOn = Math.random() > 0.1; hue = Math.random()>0.5?300:180; if(Math.random()>0.9) hue=60; opacity = Math.random(); break;
+                    case 23: let fl = lightTick % 40; isOn = fl < 5; hue = 0; sat = '0%'; light = '100%'; opacity = isOn ? 1 : 0.1; break;
+                }
+
+                if (!isOn) {
+                    bulb.style.background = '#374151';
+                    bulb.style.boxShadow = 'none';
+                    bulb.style.opacity = '0.3';
+                    bulb.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                } else {
+                    let colorStr = `hsl(${hue}, ${sat}, ${light})`;
+                    bulb.style.background = colorStr;
+                    bulb.style.boxShadow = `0 0 8px ${colorStr}, 0 0 15px ${colorStr}`;
+                    bulb.style.opacity = opacity;
+                    bulb.style.transform = `translate(-50%, -50%) scale(${1 + (opacity * 0.2)})`;
+                }
+            });
+        }, 50);
+
+        // 3. PERFECT JS PHYSICS ENGINE
+        let animationFrameId, lastPegPassed = -1, startRotationCalc = 0;
+        let targetRotationCalc = 0, spinStartTime = null, spinDuration = 0;
+
+        function animateWheelPhysics(timestamp) {
+            if (!spinStartTime) spinStartTime = timestamp;
+            let elapsed = timestamp - spinStartTime;
+            let progress = Math.min(elapsed / spinDuration, 1);
+            let easeProgress = 1 - Math.pow(1 - progress, 4); 
+            
+            let currentAngle = startRotationCalc + (targetRotationCalc - startRotationCalc) * easeProgress;
+            wheel.style.transform = `rotate(${currentAngle}deg)`;
+
+            let hitOffset = 3; 
+            let currentPeg = Math.floor((currentAngle + hitOffset) / degreesPerSegment);
+            
+            if (currentPeg > lastPegPassed) {
+                lastPegPassed = currentPeg;
+                pointerBlade.style.transform = `rotate(-14deg)`;
+                setTimeout(() => { if (isSpinning) pointerBlade.style.transform = `rotate(0deg)`; }, 70); 
+            }
+
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(animateWheelPhysics);
+            } else {
+                isSpinning = false;
+                currentRotation = targetRotationCalc;
+                pointerBlade.style.transform = `rotate(0deg)`; 
+                
+                let finalMod = 360 - (targetRotationCalc % 360);
+                if (finalMod === 360) finalMod = 0;
+                let winningIndex = Math.floor(finalMod / degreesPerSegment);
+                
+                showWinModal(PRIZES[winningIndex]);
+            }
+        }
+
+        // 4. SPIN LOGIC WITH SPINS COUNT
+        function spinWheel() {
+            if (isSpinning || spinsLeft <= 0) return;
+            
+            // Deduct spin
+            spinsLeft--;
+            isSpinning = true;
+
+            spinBtn.innerText = 'স্পিনিং...';
+            spinBtn.classList.remove('btn-glow');
+            spinBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            updateSpinUI();
+
+            const winningIndex = Math.floor(Math.random() * totalSegments);
+            const segmentCenter = (winningIndex * degreesPerSegment) + (degreesPerSegment / 2);
+            const randomOffset = Math.floor(Math.random() * (degreesPerSegment - 15)) - ((degreesPerSegment - 15) / 2);
+            const baseTarget = 360 - segmentCenter + randomOffset;
+            
+            const currentMod = currentRotation % 360;
+            let rotationNeeded = baseTarget - currentMod;
+            if (rotationNeeded < 0) rotationNeeded += 360;
+
+            const randomSpinTime = Math.random() * 4 + 6; 
+            const extraSpins = Math.floor(randomSpinTime) * 360; 
+            
+            startRotationCalc = currentRotation;
+            targetRotationCalc = currentRotation + rotationNeeded + extraSpins;
+            spinDuration = randomSpinTime * 1000;
+            spinStartTime = null;
+            
+            lastPegPassed = Math.floor((startRotationCalc + 3) / degreesPerSegment);
+
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(animateWheelPhysics);
+        }
+
+        // 5. MODAL LOGIC FOR BANGLADESHI REWARDS
+        function showWinModal(winner) {
+            document.getElementById('winPrizeText').innerText = winner.text.replace('\n', ' ');
+            const modalIconContainer = document.getElementById('modalIconContainer');
+            modalIconContainer.innerHTML = winner.icon;
+            
+            const svg = modalIconContainer.querySelector('svg');
+            svg.classList.remove('w-6', 'h-6', 'md:w-8', 'md:h-8');
+            svg.classList.add('w-10', 'h-10', 'md:w-14', 'md:h-14');
+
+            // Dynamic Modal Content Based on Prize Type
+            const claimBtn = document.getElementById('claimBtn');
+            const modalTitle = document.getElementById('modalTitle');
+            const closeBtn = document.getElementById('closeModalBtn');
+
+            if(winner.type === 'spin') {
+                modalTitle.innerText = "অসাধারণ!";
+                claimBtn.innerText = "স্পিন যোগ করুন";
+                closeBtn.classList.add('hidden'); // Force them to click add spins
+                
+                // Add spins logic handled in the click listener below
+                claimBtn.onclick = function() {
+                    spinsLeft += winner.amount;
+                    closeModal();
+                };
+            } else if(winner.type === 'none') {
+                modalTitle.innerText = "ইসস!";
+                claimBtn.innerText = "আবার চেষ্টা করুন";
+                closeBtn.classList.add('hidden');
+                
+                claimBtn.onclick = function() { closeModal(); };
+            } else {
+                modalTitle.innerText = "অভিনন্দন!";
+                claimBtn.innerText = "পুরস্কার সংগ্রহ করুন";
+                closeBtn.classList.remove('hidden');
+                
+                claimBtn.onclick = function() { window.open(CLAIM_URL, '_blank'); };
+            }
+
+            document.getElementById('winModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+
+            setTimeout(() => {
+                document.getElementById('modalContent').classList.add('modal-active');
+                if(winner.type !== 'none') fireConfetti();
+            }, 50);
+        }
+
+        function closeModal() {
+            document.getElementById('modalContent').classList.remove('modal-active');
+            setTimeout(() => {
+                document.getElementById('winModal').classList.add('hidden');
+                document.getElementById('confettiCanvas').classList.add('hidden');
+                document.body.style.overflow = ''; 
+                updateSpinUI();
+            }, 400);
+        }
+
+        document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+
+        // 6. CONFETTI ENGINE
+        function fireConfetti() {
+            const canvas = document.getElementById('confettiCanvas');
+            canvas.classList.remove('hidden');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const pieces = [];
+            const colors = ['#fcd34d', '#f59e0b', '#ffffff', '#ec4899', '#8b5cf6', '#22d3ee'];
+
+            for (let i = 0; i < 200; i++) {
+                pieces.push({
+                    x: canvas.width / 2, y: canvas.height / 2,
+                    w: Math.random() * 8 + 4, h: Math.random() * 8 + 4,
+                    dx: Math.random() * 24 - 12, dy: Math.random() * -25 - 5,
+                    rot: Math.random() * 360, rotSpeed: Math.random() * 15 - 7.5,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = false;
+                pieces.forEach(p => {
+                    if (p.y < canvas.height) active = true;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                    ctx.restore();
+                    p.x += p.dx; p.y += p.dy; p.dy += 0.5; p.rot += p.rotSpeed;
+                });
+                if (active) requestAnimationFrame(render);
+                else ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            render();
+        }
+
+        spinBtn.addEventListener('click', spinWheel);
+        
+        // Init
+        window.onload = () => {
+            drawWheel();
+            updateSpinUI();
+        };
+    </script>
+</body>
+</html>
